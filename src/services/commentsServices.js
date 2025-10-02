@@ -1,6 +1,6 @@
 import { pool } from '../db.js';
 
-export const getAllComments = async (req, res) => {
+export const getAllComments = async () => {
 
         const result = await pool.query('SELECT * FROM doc.comentarios');
         return result.rows;
@@ -27,7 +27,7 @@ export const getCommentsByUserId = async (req, res) => {
         return result.rows;
 };
 
-export const postCreateComment = async (req, res) => {
+export const postCreateComment = async (req) => {
     const { comentarioId, publicacionId, comentario, usuarioId } = req.body;
 
         const result = await pool.query(

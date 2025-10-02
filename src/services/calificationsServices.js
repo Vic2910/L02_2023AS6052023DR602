@@ -1,12 +1,12 @@
 import { pool } from '../db.js';
 
-export const getAllCalifications = async (req, res) => {
+export const getAllCalifications = async () => {
 
         const result = await pool.query('SELECT * FROM doc.calificaciones');
         return result.rows;
 };
 
-export const postCreateCalification = async (req, res) => {
+export const postCreateCalification = async (req) => {
     const { calificacionId, publicacionId, usuarioId, calificacion } = req.body;
 
         const result = await pool.query(

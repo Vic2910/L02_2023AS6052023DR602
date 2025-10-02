@@ -13,7 +13,7 @@ export const getObtenerTodosLosComentarios = async (req, res, next) => {
 
 export const getObtenerComentariosPorPublicacion = async (req, res, next) => {
     try {
-        const result = await CommentService.getCommentsByPostId();
+        const result = await CommentService.getCommentsByPostId(req, res);
 
         res.json(result);
     } catch (err) {
@@ -23,7 +23,7 @@ export const getObtenerComentariosPorPublicacion = async (req, res, next) => {
 
 export const getObtenerComentariosPorUsuario = async (req, res, next) => {
     try {
-        const result = await CommentService.getCommentsByUserId();
+        const result = await CommentService.getCommentsByUserId(req, res);
 
         res.json(result);
     } catch (err) {
@@ -33,7 +33,7 @@ export const getObtenerComentariosPorUsuario = async (req, res, next) => {
 
 export const PostCrearComentario = async (req, res, next) => {
     try {
-        const result = await CommentService.postCreateComment();
+        const result = await CommentService.postCreateComment(req);
 
         res.status(201).json(result.rows[0]);
     } catch (err) {
@@ -43,7 +43,7 @@ export const PostCrearComentario = async (req, res, next) => {
 
 export const PutActualizarComentario = async (req, res, next) => {
     try {
-        const result = await CommentService.putUpdateComment();
+        const result = await CommentService.putUpdateComment(req, res);
 
         res.status(201).json(result.rows[0]);
     } catch (err) {
@@ -53,7 +53,7 @@ export const PutActualizarComentario = async (req, res, next) => {
 
 export const DeleteEliminarComentario = async (req, res, next) => {
     try {
-        const result = await CommentService.deleteComment();
+        const result = await CommentService.deleteComment(req, res);
 
         res.status(201).json(result.rows[0]);
     } catch (err) {

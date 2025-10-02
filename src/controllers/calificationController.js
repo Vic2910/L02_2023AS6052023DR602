@@ -13,7 +13,7 @@ export const getObtenerTodasLasCalificaciones = async (req, res, next) => {
 
 export const PostCrearCalificacion = async (req, res, next) => {
     try {
-        const result = await CalificationService.postCreateCalification();
+        const result = await CalificationService.postCreateCalification(req);
 
         res.status(201).json(result.rows[0]);
     } catch (err) {
@@ -23,7 +23,7 @@ export const PostCrearCalificacion = async (req, res, next) => {
 
 export const PutActualizarCalificacion = async (req, res, next) => {
     try {
-        const result = await CalificationService.putUpdateCalification();
+        const result = await CalificationService.putUpdateCalification(req, res);
 
         res.status(201).json(result.rows[0]);
     } catch (err) {
@@ -33,7 +33,7 @@ export const PutActualizarCalificacion = async (req, res, next) => {
 
 export const DeleteEliminarComentario = async (req, res, next) => {
     try {
-        const result = await CommentService.deleteComment();
+        const result = await CommentService.deleteComment(req, res);
 
         res.status(201).json(result.rows[0]);
     } catch (err) {
