@@ -1,11 +1,11 @@
 import { pool } from '../db.js';
 
-export const getAllPublications = async (req, res) => {
+export const getAllPublications = async () => {
         const result = await pool.query('SELECT * FROM doc.publicaciones');
         return result.rows;
 };
 
-export const getPublicationsByUsername = async (req, res) => {
+export const getPublicationsByUsername = async (req) => {
     const { nombreUsuario } = req.params;
 
         const result = await pool.query(
@@ -46,7 +46,7 @@ export const getTopPublications = async (req, res) => {
 };
 
 
-export const postCreatePublication = async (req, res) => {
+export const postCreatePublication = async (req) => {
     const { publicacionId, titulo, descripcion, usuarioId } = req.body;
 
         const result = await pool.query(

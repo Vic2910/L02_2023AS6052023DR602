@@ -1,6 +1,6 @@
 import * as CommentService from '../services/CommentsServices.js';
 
-export const getObtenerTodosLosComentarios = async (req, res) => {
+export const getObtenerTodosLosComentarios = async (req, res, next) => {
     try {
         const result = await CommentService.getAllComments();
 
@@ -11,7 +11,7 @@ export const getObtenerTodosLosComentarios = async (req, res) => {
 };
 
 
-export const getObtenerComentariosPorPublicacion = async (req, res) => {
+export const getObtenerComentariosPorPublicacion = async (req, res, next) => {
     try {
         const result = await CommentService.getCommentsByPostId();
 
@@ -21,7 +21,7 @@ export const getObtenerComentariosPorPublicacion = async (req, res) => {
     }
 };
 
-export const getObtenerComentariosPorUsuario = async (req, res) => {
+export const getObtenerComentariosPorUsuario = async (req, res, next) => {
     try {
         const result = await CommentService.getCommentsByUserId();
 
@@ -31,7 +31,7 @@ export const getObtenerComentariosPorUsuario = async (req, res) => {
     }
 };
 
-export const PostCrearComentario = async (req, res) => {
+export const PostCrearComentario = async (req, res, next) => {
     try {
         const result = await CommentService.postCreateComment();
 
@@ -41,7 +41,7 @@ export const PostCrearComentario = async (req, res) => {
     }
 };
 
-export const PutActualizarComentario = async (req, res) => {
+export const PutActualizarComentario = async (req, res, next) => {
     try {
         const result = await CommentService.putUpdateComment();
 
@@ -51,7 +51,7 @@ export const PutActualizarComentario = async (req, res) => {
     }
 };
 
-export const DeleteEliminarComentario = async (req, res) => {
+export const DeleteEliminarComentario = async (req, res, next) => {
     try {
         const result = await CommentService.deleteComment();
 

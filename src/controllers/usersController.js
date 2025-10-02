@@ -1,6 +1,6 @@
 import* as userService from '../services/usersServices.js';
 
-export const getObtenerTodosLosUsuarios = async (req, res) => {
+export const getObtenerTodosLosUsuarios = async (req, res, next) => {
     try {
         const result = await userService.getAllUsers();
 
@@ -10,9 +10,9 @@ export const getObtenerTodosLosUsuarios = async (req, res) => {
     }
 };
 
-export const getObtenerUsuariosPorNombre = async (req, res) => {
+export const getObtenerUsuariosPorNombre = async (req, res, next) => {
     try {
-        const result = await userService.getUserByNombre();
+        const result = await userService.getUserByName(req);
 
         res.json(result);
     } catch (err) {
@@ -20,9 +20,9 @@ export const getObtenerUsuariosPorNombre = async (req, res) => {
     }
 };
 
-export const getObtenerUsuariosPorApellido = async (req, res) => {
+export const getObtenerUsuariosPorApellido = async (req, res, next) => {
     try {
-        const result = await userService.getUserByApellido();
+        const result = await userService.getUserByApellido(req);
 
         res.json(result);
     } catch (err) {
@@ -30,9 +30,9 @@ export const getObtenerUsuariosPorApellido = async (req, res) => {
     }
 };
 
-export const getObtenerUsuariosPorRol = async (req, res) => {
+export const getObtenerUsuariosPorRol = async (req, res, next) => {
     try {
-        const result = await userService.getUserByRol();
+        const result = await userService.getUserByRol(req);
 
         res.json(result);
     } catch (err) {
@@ -40,9 +40,9 @@ export const getObtenerUsuariosPorRol = async (req, res) => {
     }
 };
 
-export const PostCrearUsuario = async (req, res) => {
+export const PostCrearUsuario = async (req, res, next) => {
     try {
-        const result = await userService.postCreateUser();
+        const result = await userService.postCreateUser(req);
 
         res.status(201).json(result.rows[0]);
     } catch (err) {
@@ -50,9 +50,9 @@ export const PostCrearUsuario = async (req, res) => {
     }
 };
 
-export const PutActualizarUsuario = async (req, res) => {
+export const PutActualizarUsuario = async (req, res, next) => {
     try {
-        const result = await userService.putUpdateUser();
+        const result = await userService.putUpdateUser(req);
 
         res.status(201).json(result.rows[0]);
     } catch (err) {
@@ -60,9 +60,9 @@ export const PutActualizarUsuario = async (req, res) => {
     }
 };
 
-export const DeleteEliminarUsuario = async (req, res) => {
+export const DeleteEliminarUsuario = async (req, res, next) => {
     try {
-        const result = await userService.deleteUser();
+        const result = await userService.deleteUser(req);
 
         res.status(201).json(result.rows[0]);
     } catch (err) {

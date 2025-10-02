@@ -1,6 +1,6 @@
 import * as CalificationService from '../services/calificationsServices.js';
 
-export const getObtenerTodasLasCalificaciones = async (req, res) => {
+export const getObtenerTodasLasCalificaciones = async (req, res, next) => {
     try {
         const result = await CalificationService.getAllCalifications();
 
@@ -11,7 +11,7 @@ export const getObtenerTodasLasCalificaciones = async (req, res) => {
 };
 
 
-export const PostCrearCalificacion = async (req, res) => {
+export const PostCrearCalificacion = async (req, res, next) => {
     try {
         const result = await CalificationService.postCreateCalification();
 
@@ -21,7 +21,7 @@ export const PostCrearCalificacion = async (req, res) => {
     }
 };
 
-export const PutActualizarCalificacion = async (req, res) => {
+export const PutActualizarCalificacion = async (req, res, next) => {
     try {
         const result = await CalificationService.putUpdateCalification();
 
@@ -31,7 +31,7 @@ export const PutActualizarCalificacion = async (req, res) => {
     }
 };
 
-export const DeleteEliminarComentario = async (req, res) => {
+export const DeleteEliminarComentario = async (req, res, next) => {
     try {
         const result = await CommentService.deleteComment();
 
